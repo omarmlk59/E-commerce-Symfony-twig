@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte - La Boutique Française
+{% endblock %}
+
+{% block content %}
+	<h1>Mon Compte</h1>
+	{% if is_granted ('ROLE_ADMIN') %}
+		-<a href="/admin">Vous êtes un Administrateur, accéder au backoffice ?</a>
+	{% endif %}
+	Bienvenue
+	{{app.user.firstname}}
+	dans votre compte.
+	<br>
+	C'est ici que vous allez pouvoir gérer vos informations personnelles.
+	<hr>
+	
+	<br>
+
+
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="account-item text-center">
+				 <img src="{{ asset('asset/img/cadena.png')}}" alt="Modifier Mot de passe<"> <br>
+				 <a href="{{ path('account_password') }}">Modifier Mot de passe</a><br>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="account-item text-center">
+				 <img src="{{ asset('asset/img/address.png')}}" alt="Gérer mes adresses<"> <br>
+				 <a href="{{ path('account_address') }}">Gérer mes Adresses</a><br>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="account-item text-center">
+				<img src="{{ asset('asset/img/purchase.png')}}" alt="Voir mes commandes<"> <br>
+				 <a href="{{ path('account_order') }}">Mes Commandes</a><br>
+		</div>
+	</div>
+</div>
+
+
+	
+	
+	<hr>
+
+
+{% endblock %}
